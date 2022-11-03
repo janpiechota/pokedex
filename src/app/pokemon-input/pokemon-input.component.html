@@ -1,0 +1,9 @@
+<div class="container">
+  <input type="text" placeholder="Enter pokemon name" [matAutocomplete]="auto" [formControl]="pokemonName" #name>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let pokemon of filteredOptions | async" [value]="pokemon.name">
+      {{ pokemon.name }}
+    </mat-option>
+  </mat-autocomplete>
+  <button (click)="onSearch(name.value)">Search pokemon</button>
+</div>

@@ -5,18 +5,22 @@
 
 .card {
   height: 500px;
-  width: 320px;
+  width: 340px;
   border: 16px solid #ffe173;
   border-radius: 10px;
   background: linear-gradient(29deg,rgba(20,187,241,.63),rgba(0,0,255,.71));
   padding: 16px;
-  margin: 50px;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 20px;
+}
+
+.card-header-name::first-letter {
+  text-transform: uppercase;
 }
 
 .card-image {
@@ -35,11 +39,25 @@
 }
 
 .card-type {
-  font-size: 12px;
+  font-size: 14px;
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
-  width: 50px;
+  width: 60px;
   text-align: center;
-  padding: 2px;
+  padding: 3px;
+  display: inline;
+  margin-bottom: 20px;
+}
+
+.card-type::first-letter {
+  text-transform: uppercase;
+}
+
+.card-stats > span {
+  font-size: 18px;
+}
+
+.card-stats > mat-progress-bar {
+  margin-bottom: 10px;
 }

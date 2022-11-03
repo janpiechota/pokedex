@@ -1,4 +1,4 @@
 <div class="container">
-  <app-pokemon (changed)="pokemonCardChangeHandler($event)"></app-pokemon>
+  <app-pokemon-input (changed)="pokemonCardChangeHandler($event)"></app-pokemon-input>
   <app-pokemon-card [pokemon]="pokemonCard" *ngIf="isPokemonCardVisible"></app-pokemon-card>
 </div>

@@ -3,9 +3,3 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.snackbar {
-  background-color: rgba(230, 28, 28, 0.8);
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-}

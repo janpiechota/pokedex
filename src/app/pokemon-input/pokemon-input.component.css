@@ -40,3 +40,8 @@ button {
 button:hover {
   background-color: #283593;
 }
+
+mat-option {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}

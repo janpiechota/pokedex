@@ -2,19 +2,16 @@
   <div class="card" *ngIf="pokemon !== null">
     <div class="card-header">
       <div class="card-header-name">{{ pokemon.name }}</div>
-      <div class="card-header-hp">HP {{ pokemon.stats.hp }}</div>
+      <div class="card-header-hp">HP {{ hp }}</div>
     </div>
     <div class="card-image">
-      <img src="{{ pokemon.image }}">
+      <img src="{{ pokemon.image }}" *ngIf="pokemon.image !== null">
+      <img src="{{ pokemon.altImage }}" *ngIf="pokemon.image === null">
     </div>
-    <div class="card-type">{{ pokemon.type }}</div>
-    <div class="card-stats">
-      <p>HP: {{ pokemon.stats.hp }}</p>
-      <p>ATTACK: {{ pokemon.stats.attack }}</p>
-      <p>DEFENSE: {{ pokemon.stats.defense }}</p>
-      <p>SPECIAL ATTACK: {{ pokemon.stats.specialAttack }}</p>
-      <p>SPECIAL DEFENSE: {{ pokemon.stats.specialDefense }}</p>
-      <p>SPEED: {{ pokemon.stats.speed}}</p>
+    <div class="card-type" *ngFor="let type of pokemon.types">{{ type }}</div>
+    <div class="card-stats" *ngFor="let stat of pokemon.stats">
+      <span>{{ stat.name }}</span>
+      <mat-progress-bar mode="determinate" value="{{ stat.value }}"></mat-progress-bar>
     </div>
   </div>
 </div>
