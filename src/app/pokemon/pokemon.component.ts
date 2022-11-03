@@ -1,19 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { PokemonSearchService } from '../pokemon-search.service';
-
-type Pokemon = {
-  name: string,
-  image: string,
-  type: string,
-  stats: {
-    hp: number,
-    attack: number,
-    defense: number,
-    specialAttack: number,
-    specialDefense: number,
-    speed: number
-  }
-}
+import {Pokemon} from "../types/pokemon";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-pokemon',
@@ -22,16 +10,15 @@ type Pokemon = {
 })
 export class PokemonComponent implements OnInit {
 
-  pokemon!: Pokemon;
-  show: boolean = false;
+  @Output() changed = new EventEmitter<Pokemon>();
+  pokemon: Pokemon | null = null;
 
-  constructor(private pokemonSearchService: PokemonSearchService) { }
+  constructor(private pokemonSearchService: PokemonSearchService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   onSearch(name: string) {
-    this.show = true;
     this.pokemonSearchService.getPokemon(name).subscribe((res: any) => {
       this.pokemon = {
         name: res.name,
@@ -46,7 +33,10 @@ export class PokemonComponent implements OnInit {
           speed: res.stats[5].base_stat,
         }
       }
-    })
+      this.changed.emit(this.pokemon);
+    }, (error) => this.snackBar.open('Pokemon was not found', 'Cancel', {
+      panelClass: ['snackbar']
+    }))
   }
 
 }

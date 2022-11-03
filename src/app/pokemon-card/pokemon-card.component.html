@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card" *ngIf="pokemon !== null">
+    <div class="card-header">
+      <div class="card-header-name">{{ pokemon.name }}</div>
+      <div class="card-header-hp">HP {{ pokemon.stats.hp }}</div>
+    </div>
+    <div class="card-image">
+      <img src="{{ pokemon.image }}">
+    </div>
+    <div class="card-type">{{ pokemon.type }}</div>
+    <div class="card-stats">
+      <p>HP: {{ pokemon.stats.hp }}</p>
+      <p>ATTACK: {{ pokemon.stats.attack }}</p>
+      <p>DEFENSE: {{ pokemon.stats.defense }}</p>
+      <p>SPECIAL ATTACK: {{ pokemon.stats.specialAttack }}</p>
+      <p>SPECIAL DEFENSE: {{ pokemon.stats.specialDefense }}</p>
+      <p>SPEED: {{ pokemon.stats.speed}}</p>
+    </div>
+  </div>
+</div>
